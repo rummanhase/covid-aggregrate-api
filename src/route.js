@@ -7,7 +7,7 @@ router.get('/' , async(req , res)=>{
 })
 
 router.get('/totalRecovered' , async(req , res)=>{
-    console.log('totalRecovered api called');
+    // console.log('totalRecovered api called');
     const data = await connection.find({}) 
     let totalRecovered =0
     data.map(a=>{totalRecovered += a.recovered})
@@ -15,7 +15,7 @@ router.get('/totalRecovered' , async(req , res)=>{
 })
 
 router.get('/totalActive' , async(req , res)=>{
-    console.log('totalActive api called');
+    // console.log('totalActive api called');
     const data = await connection.find({}) 
     let totalActive =0
     data.map(a=>{totalActive = totalActive + a.infected - a.recovered})
@@ -23,7 +23,7 @@ router.get('/totalActive' , async(req , res)=>{
 })
 
 router.get('/totalDeath' , async(req , res)=>{
-    console.log('totalDeath api called');
+    // console.log('totalDeath api called');
     const data = await connection.find({}) 
     let totalDeath =0
     data.map(a=>{totalDeath += a.death})
@@ -31,7 +31,7 @@ router.get('/totalDeath' , async(req , res)=>{
 })
 
 router.get('/hotspotStates' , async(req , res)=>{
-    console.log('hotspotStates api called');
+    // console.log('hotspotStates api called');
     const myData = await connection.find({}) 
     let data =[]
     let myRate;
@@ -46,7 +46,7 @@ router.get('/hotspotStates' , async(req , res)=>{
 })
 
 router.get('/healthyStates' , async(req , res)=>{
-    console.log('healthyStates api called');
+    // console.log('healthyStates api called');
     const myData = await connection.find({}) 
     let data =[]
     let myRate;
