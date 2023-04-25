@@ -7,6 +7,9 @@ const port = 8080
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 const { connection } = require('./connector')
+const router = require('./route')
+
+app.use('/' , router)
 
 
 
