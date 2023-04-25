@@ -18,8 +18,16 @@ router.get('/totalActive' , async(req , res)=>{
     console.log('totalActive api called');
     const data = await connection.find({}) 
     let totalActive =0
-    data.map(a=>{totalActive += a.infected - a.infected - a.death})
+    data.map(a=>{totalActive = totalActive + a.infected - a.recovered})
     res.send( {data: {_id: "total", active:totalActive}})
+})
+
+router.get('/totalDeath' , async(req , res)=>{
+    console.log('totalDeath api called');
+    const data = await connection.find({}) 
+    let totalDeath =0
+    data.map(a=>{totalDeath += a.death})
+    res.send( {data: {_id: "total", death:totalDeath}})
 })
 
 router.get('/hotspotStates' , async(req , res)=>{
